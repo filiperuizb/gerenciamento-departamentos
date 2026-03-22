@@ -30,4 +30,13 @@ public class DepartamentoService {
         departamentoRepository.deleteById(id);
     }
 
+    public DepartamentoEntity atualizar(Long id, DepartamentoEntity atualizarDepartamento) {
+        DepartamentoEntity entity = departamentoRepository.findById(id).get();
+
+        entity.setName(atualizarDepartamento.getName());
+        entity.setLocation(atualizarDepartamento.getLocation());
+
+        return departamentoRepository.save(entity);
+    }
+
 }

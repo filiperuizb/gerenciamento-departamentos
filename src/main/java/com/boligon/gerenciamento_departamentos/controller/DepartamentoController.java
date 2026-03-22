@@ -45,4 +45,11 @@ public class DepartamentoController {
         return ResponseEntity.status(204).build();
     }
 
+    @PutMapping("/{id}")
+    public ResponseEntity<DepartamentoEntity> atualizar(@PathVariable Long id, @RequestBody DepartamentoEntity atualizarDepartamento) {
+        DepartamentoEntity entity = departamentoService.atualizar(id, atualizarDepartamento);
+
+        return ResponseEntity.ok(entity);
+    }
+
 }
